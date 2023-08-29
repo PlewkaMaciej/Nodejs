@@ -1,0 +1,7 @@
+const name = require("./names")
+const sayHi=require("./globals")
+const personData=require("./alternativa-flavor")
+require("./mind-grenade")
+// console.log(personData)
+// console.log(name)
+// sayHi(name.secret)
