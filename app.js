@@ -1,12 +1,22 @@
-const http = require9('http')
-const server = http.createServer((req,res)=>{
-if(req.url==='/'){
-    res.end('Home Page')
+const {readFile} = require('fs')
+
+
+
+const getText=(path)=>{
+    return new Promise((resolve,reject)=>{
+        readFile(path,'utf8',(err,data)=>{
+            if(err){
+                
+              reject(err)
+            }
+            else{
+             resolve(data)
+            }
+        })
+    })
 }
-if(req.url==='/about'){
-    res.end('About Page')
-}
-})
-server.listen(5000,()=>{
-    console.log('Server Listening on port 5000....')
+getText("./content/first.txt").then(result=>{
+    console.log(result).catch((err)=>{
+        console.log(err)
+    })
 })
